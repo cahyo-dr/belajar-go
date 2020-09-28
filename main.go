@@ -7,6 +7,8 @@ func main() {
 
 	length := len(somethings)
 
+	var chunks [3][]int
+
 	amount := length / 3
 	maxTotal := 0
 	minTotal := 0
@@ -18,6 +20,11 @@ func main() {
 		finish := iteration * amount
 		start := i * amount
 		slice := somethings[start:finish]
+		chunks[i] = slice
+	}
+
+	for key, slice := range chunks {
+		iteration := key + 1
 		fmt.Println("Kumpulan ke-", iteration)
 		fmt.Println(slice)
 		max := 0
